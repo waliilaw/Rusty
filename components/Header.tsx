@@ -44,7 +44,7 @@ export default function Header() {
             w-2/3 2xl:px-8">   
                 <div className="max-w-8xl mx-auto flex justify-between items-center">
                     <div className="text-xl font-bold flex flex-row-1 items-center">
-                      <img src="/logo.png" alt="RustySky Logo" className="w-22" />
+                      <img src="/logo.png" alt="RustySky Logo" className="w-32" />
                       <div className="relative ml-2">
                         <img 
                           width="30" 
@@ -99,10 +99,10 @@ export default function Header() {
                                     href={item.href}
                                     className="text-md 2xl:text-lg   relative block transition-all duration-100 ease-in-out"
                                 >
-                                    <span className="block font-regular group-hover:opacity-0 transition-opacity duration-300">
+                                    <span className="block font-regular group-hover:opacity-0 transition-none duration-0">
                                         {item.title}
                                     </span>
-                                    <span className="font-satisfy absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="font-satisfy absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                         {item.title}
                                     </span>
                                 </a>

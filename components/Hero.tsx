@@ -3,6 +3,7 @@
 
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
     
@@ -25,13 +26,69 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/30 z-10"></div>
             
             {/* Content */}
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white ">
-                <h1 className="text-6xl font-bold mb-4 gap-0 ">Welcome to Rusty <span className='font-satisfy '>Works</span></h1>
-                <p className="text-xl font-regular">Your Journey Begins Here</p>
-                <button className='mt-8 px-6 py-3 bg-transparent  text-white border-2 border-white rounded-2xl font-bold  hover:opacity-80 transition-all hover:bg-white/80 hover:text-black hover:border-white/80 duration-400 ease-in-out'
-                onClick={() => {router.push('#works')}}>
-                    Proceed <span className='italic'>to</span> Works
-                </button>
+            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
+                <div className="text-center">
+                    <h1 className="text-6xl font-bold mb-4 gap-0">Welcome to Rusty <span className='font-satisfy'>Works</span></h1>
+                    
+                    <div className="relative">
+                        <div className="flex items-center justify-center gap-8 mb-8">
+                            <div className="h-[1px] w-20 bg-gradient-to-r from-white/20 via-white/40 to-white/20"></div>
+                            <p className="text-xl font-regular tracking-wide">Showcasing complex backend architechture</p>
+                            <div className="h-[1px] w-20 bg-gradient-to-r from-white/20 via-white/40 to-white/20"></div>
+                        </div>
+                        
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="inline-flex gap-2 p-4 rounded-3xl bg-black/20 backdrop-blur-sm mb-8 border border-white/5"
+                        >
+                            <div className="relative w-[120px] h-[32px] flex items-center justify-center">
+                                <motion.span 
+                                    whileHover={{ 
+                                        scale: 1.05,
+                                        fontFamily: 'satisfy'
+                                    }}
+                                    className="text-lg font-medium tracking-wide text-white/90  absolute whitespace-nowrap"
+                                    style={{ transformOrigin: "center" }}
+                                >
+                                    Live Demos
+                                </motion.span>
+                            </div>
+                            <span className="text-lg text-white/40">|</span>
+                            <div className="relative w-[140px] h-[32px] flex items-center justify-center">
+                                <motion.span 
+                                    whileHover={{ 
+                                        scale: 1.05,
+                                        fontFamily: 'satisfy'
+                                    }}
+                                    className="text-lg font-medium tracking-wide text-white/90  absolute whitespace-nowrap"
+                                    style={{ transformOrigin: "center" }}
+                                >
+                                    Open Source
+                                </motion.span>
+                            </div>
+                            <span className="text-lg text-white/40">|</span>
+                            <div className="relative w-[80px] h-[32px] flex items-center justify-center">
+                                <motion.span 
+                                    whileHover={{ 
+                                        scale: 1.05,
+                                        fontFamily: 'satisfy'
+                                    }}
+                                    className="text-lg font-medium tracking-wide text-white/90  absolute whitespace-nowrap"
+                                    style={{ transformOrigin: "center" }}
+                                >
+                                    Docs
+                                </motion.span>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    <button className=' px-6 py-3 bg-transparent text-white border-2 border-white rounded-2xl font-bold hover:opacity-80 transition-all hover:bg-white/80 hover:text-black hover:border-white/80 duration-400 ease-in-out'
+                    onClick={() => {router.push('#works')}}>
+                        Proceed <span className='italic'>to</span> Works
+                    </button>
+                </div>
             </div>
         </div>
     );
