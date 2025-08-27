@@ -37,10 +37,10 @@ export function GlowEffect({
   scale = 1,
   duration = 5,
 }: GlowEffectProps) {
-  const BASE_TRANSITION = {
+  const BASE_TRANSITION: Transition = {
     repeat: Infinity,
     duration: duration,
-    ease: 'linear',
+    ease: [0.4, 0, 0.2, 1],
   };
 
   const animations = {
@@ -131,17 +131,33 @@ export function GlowEffect({
 
   return (
     <motion.div
-      style={
-        {
-          ...style,
-          '--scale': scale,
-          willChange: 'transform',
-          backfaceVisibility: 'hidden',
-        } as React.CSSProperties
-      }
-      // animate={animations[mode]}
+      style={{
+        ...style,
+        '--tw-scale': scale,
+        scale: `var(--tw-scale)`,
+        willChange: 'transform, background',
+        backfaceVisibility: 'hidden',
+        background: mode === 'static' 
+          ? `linear-gradient(to right, ${colors.join(', ')})`
+          : `radial-gradient(circle at 50% 50%, ${colors[0]} 0%, ${colors[1]} 25%, ${colors[2]} 50%, ${colors[3]} 75%, ${colors[0]} 100%)`,
+      }}
+      animate={{
+        background: mode === 'static' 
+          ? `linear-gradient(to right, ${colors.join(', ')})`
+          : [
+              `radial-gradient(circle at 50% 50%, ${colors[0]} 0%, ${colors[1]} 25%, ${colors[2]} 50%, ${colors[3]} 75%, ${colors[0]} 100%)`,
+              `radial-gradient(circle at 50% 50%, ${colors[1]} 0%, ${colors[2]} 25%, ${colors[3]} 50%, ${colors[0]} 75%, ${colors[1]} 100%)`,
+              `radial-gradient(circle at 50% 50%, ${colors[2]} 0%, ${colors[3]} 25%, ${colors[0]} 50%, ${colors[1]} 75%, ${colors[2]} 100%)`,
+              `radial-gradient(circle at 50% 50%, ${colors[3]} 0%, ${colors[0]} 25%, ${colors[1]} 50%, ${colors[2]} 75%, ${colors[3]} 100%)`,
+            ],
+        transition: {
+          duration: duration,
+          ease: "linear",
+          repeat: Infinity,
+        }
+      }}
       className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full',
+        'pointer-events-none absolute inset-0 h-full w-full opacity-75',
         'scale-[var(--scale)] transform-gpu',
         getBlurClass(blur),
         className

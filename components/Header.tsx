@@ -7,14 +7,20 @@ import { useState, useEffect } from 'react';
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Prevent scroll when menu is open
+    // Handle scroll lock without layout shift
     useEffect(() => {
         if (isMenuOpen) {
+            // Get current scroll width
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            // Add padding to prevent layout shift when scrollbar disappears
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
             document.body.style.overflow = 'hidden';
         } else {
+            document.body.style.paddingRight = '0px';
             document.body.style.overflow = 'unset';
         }
         return () => {
+            document.body.style.paddingRight = '0px';
             document.body.style.overflow = 'unset';
         };
     }, [isMenuOpen]);
@@ -27,10 +33,9 @@ export default function Header() {
     ];
 
     const rustyworks = [
-        {title : 'Links' , href :'#footer'},
-        {title : 'About' , href :'#about'},
-        {title : 'Works' , href : '#works' },
-    ]
+        {title : 'Docs' , href :'/docs' , image : '/logo.png'},
+        {title : 'Works' , href :'/works', image : '/logo.png'},
+]
 
     return (
         <>
@@ -47,7 +52,7 @@ export default function Header() {
                           src="https://img.icons8.com/?size=100&id=40021&format=png&color=FFFFFF" 
                           className='cursor-pointer transition-transform duration-300 transform'
                           style={{
-                            transform: isMenuOpen ? 'rotate(180deg)' : 'rotate(0)'
+                            transform: isMenuOpen ? 'rotate(-90deg)' : 'rotate(0)'
                           }}
                           alt="expand-arrow--v2"
                           onClick={(e) => {
@@ -55,44 +60,53 @@ export default function Header() {
                             setIsMenuOpen(!isMenuOpen);
                           }}
                         />
+
                         <div className={`
                           absolute top-full left-0 mt-2
                           transition-all duration-300 ease-in-out
-                          ${isMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'}
+                          ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0  translate-y-0'}
                           z-[60]
                         `}>
                           <div className={`
-                            flex flex-col items-start p-4 space-y-4
-                            bg-white/20 backdrop-blur-md rounded-b-xl
-                            min-w-[120px] shadow-lg mt-[21px] 
+                            flex flex-col items-start p-4 space-y-4 bg-white/5 mt-
+                            border-b-0 border-x-0 border-white/20 border-t-0 backdrop-blur-4xl rounded-b-xl
+                            min-w-[200px]  mt-[21px] 
                           `}>
                             {rustyworks.map((item, index) => (
-                              <a
+                              <div
                                 key={item.title}
-                                href={item.href}
-                                className="text-md font-regular 2xl:text-lg text-white hover:font-satisfy transition-all duration-300 ease-in-out w-1 p-2"
+                                className="text-md font-bold 2xl:text-lg text-white hover:font-satisfy transition-all duration-300 ease-in-out  p-2"
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   setIsMenuOpen(false);
                                 }}
                               >
-                                {item.title}
-                              </a>
+                                <img src={item.image} alt="" className='w-auto h-auto'/>
+                              </div>
                             ))}
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <nav className="flex items-center space-x-10 text-white ">
+                    <nav className="flex items-center  text-white ">
                         {menuItems.map((item) => (
-                            <a
+                            <div
                                 key={item.title}
-                                href={item.href}
-                                className="text-md font-regular 2xl:text-lg hover:font-satisfy transition-all duration-300 p-2 ease-in-out hover:p-6 "
+                                className="relative group  px-8 py-8"
                             >
-                                {item.title}
-                            </a>
+                                <a
+                                    href={item.href}
+                                    className="text-md 2xl:text-lg   relative block transition-all duration-100 ease-in-out"
+                                >
+                                    <span className="block font-regular group-hover:opacity-0 transition-opacity duration-300">
+                                        {item.title}
+                                    </span>
+                                    <span className="font-satisfy absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        {item.title}
+                                    </span>
+                                </a>
+                            </div>
                         ))}
                     </nav>
                 </div>

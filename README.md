@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+hey there! 👋
 
-## Getting Started
+welcome to rusty sky - my little corner of the web where i showcase all the cool stuff i'm building with rust. you know how rust is mostly backend stuff that's hard to show off? well, this is my solution to that problem!
 
-First, run the development server:
+## what's this all about?
+
+i'm learning rust and building some pretty interesting projects along the way. but since rust runs on the server side, it's not as easy to demonstrate as, say, a fancy website. so i created this space to show what i'm working on in a way that everyone can understand and interact with.
+
+## what can you find here?
+
+- all my rust projects with live demos
+- detailed documentation of my learning journey
+- guides and tutorials i've written while learning
+- real-time visualizations of rust applications
+- interactive examples of rust concepts
+
+## current projects
+
+here are some things i'm working on:
+- high-performance api gateway
+- blockchain data explorer
+- real-time data processing engine
+- and more coming soon!
+
+## wanna learn together?
+
+you can find all my documentation at `/docs`. i'm writing everything in a way that's easy to understand, even if you're just starting with rust. it's the kind of documentation i wish i had when i started!
+
+## tech stack
+
+this showcase is built with:
+- next.js 15.5
+- react 19
+- tailwind css
+- framer motion
+- and of course, rust 🦀
+
+## let's connect!
+
+if you're also learning rust or interested in what i'm building, feel free to:
+- check out my projects
+- read through my docs
+- suggest improvements
+- share your own rust journey
+
+## running locally
+
+if you want to run this showcase on your machine:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+then open [http://localhost:3000](http://localhost:3000) to see it in action!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## see it live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+check out the live version at [your-url-here] to see all my rust projects in action!
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+made with 🦀 by wali

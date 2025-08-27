@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Satisfy } from "next/font/google";
 import "./globals.css";
 import localFont from 'next/font/local';
-import SmoothScrolling from "@/hooks/useLenis";
+import { ScrollProvider } from "@/components/providers/ScrollProvider";
 
 const skyFont = localFont({
   src: [
@@ -63,9 +63,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${skyFont.variable} ${satisfy.variable} antialiased`}
       >
-        <SmoothScrolling>
- {children}
-        </SmoothScrolling>
+        <ScrollProvider>
+          {children}
+        </ScrollProvider>
        
       </body>
 

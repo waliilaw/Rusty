@@ -9,19 +9,19 @@ import { motion } from 'framer-motion';
 const  Page = ()  => {
   return(
     <motion.div 
-    className="flex flex-cols-1 items-center justify-center min-h-screen min-w-screen bg-white overflow-hidden"
+    className="flex flex-col items-center w-full bg-white overflow-x-hidden"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
     >
-
       <Header />
       <Hero />
-
       <Works />
 
-      <Footer />
+
+
+      {/* <Footer /> */}
     
     </motion.div>
   )
