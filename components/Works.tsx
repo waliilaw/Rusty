@@ -7,21 +7,21 @@ export default function Works() {
             description: "A lightning-fast API Gateway that handles concurrent requests with Rust's zero-cost abstractions. Designed for scalability and real-world performance demands.",
             color: ['#C14D30', '#E85D3F', '#F47B52', '#FF9466'],
             tech: "Actix-web, Tokio",
-            image: "/projects/api-gateway.jpg" // You'll need to add these images to your public folder
+            image: "/proc1.png" // You'll need to add these images to your public folder
         },
         {
             title: "Blockchain Data Explorer",
             description: "Interactive blockchain visualization platform that makes complex data structures accessible. Real-time block exploration with intuitive visual representations.",
             color: ['#A13B1F', '#C14D30', '#E85D3F', '#F47B52'],
             tech: "Rust, WebAssembly, D3.js",
-            image: "/logo.png"
+            image: "/proc2.png"
         },
         {
             title: "Real-time Processing Engine",
             description: "Advanced data processing system leveraging Rust's fearless concurrency. Handles massive data streams with minimal latency and maximum reliability.",
             color: ['#7A2C17', '#A13B1F', '#C14D30', '#E85D3F'],
             tech: "Tokio, RocketRS",
-            image: "/projects/processing.jpg"
+            image: "/proc3.png"
         }
     ]
     return ( 
