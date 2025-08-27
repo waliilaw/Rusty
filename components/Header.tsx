@@ -1,6 +1,7 @@
 
 
 'use client'
+
 import { useState, useEffect } from 'react';
 
 export default function Header() {
@@ -25,22 +26,70 @@ export default function Header() {
         { title: 'Contact', href: '/contact' }
     ];
 
+    const rustyworks = [
+        {title : 'Links' , href :'#footer'},
+        {title : 'About' , href :'#about'},
+        {title : 'Works' , href : '#works' },
+    ]
+
     return (
         <>
             {/* Desktop Header */}
-            <header className="absolute top-3  px-6 z-50 hidden lg:block bg-white/20  backdrop-blur-md rounded-3xl  my-2
+            <header className="absolute top-3  px-6 z-50 hidden lg:block bg-white/20  backdrop-blur-md rounded-3xl my-2
             w-2/3 2xl:px-8">   
                 <div className="max-w-8xl mx-auto flex justify-between items-center">
-                    <a href="/" className="text-xl font-bold">
-                    <img src="/logo.png" alt="RustySky Logo" className="w-22" />
-                    </a>
+                    <div className="text-xl font-bold flex flex-row-1 items-center">
+                      <img src="/logo.png" alt="RustySky Logo" className="w-22" />
+                      <div className="relative ml-2">
+                        <img 
+                          width="30" 
+                          height="30" 
+                          src="https://img.icons8.com/?size=100&id=40021&format=png&color=FFFFFF" 
+                          className='cursor-pointer transition-transform duration-300 transform'
+                          style={{
+                            transform: isMenuOpen ? 'rotate(180deg)' : 'rotate(0)'
+                          }}
+                          alt="expand-arrow--v2"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMenuOpen(!isMenuOpen);
+                          }}
+                        />
+                        <div className={`
+                          absolute top-full left-0 mt-2
+                          transition-all duration-300 ease-in-out
+                          ${isMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'}
+                          z-[60]
+                        `}>
+                          <div className={`
+                            flex flex-col items-start p-4 space-y-4
+                            bg-white/20 backdrop-blur-md rounded-b-xl
+                            min-w-[120px] shadow-lg mt-[21px] 
+                          `}>
+                            {rustyworks.map((item, index) => (
+                              <a
+                                key={item.title}
+                                href={item.href}
+                                className="text-md font-regular 2xl:text-lg text-white hover:font-satisfy transition-all duration-300 ease-in-out w-1 p-2"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setIsMenuOpen(false);
+                                }}
+                              >
+                                {item.title}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     
-                    <nav className="flex items-center space-x-8 ">
+                    <nav className="flex items-center space-x-10 text-white ">
                         {menuItems.map((item) => (
                             <a
                                 key={item.title}
                                 href={item.href}
-                                className="text-md font-regular 2xl:text-lg hover:opacity-70 transition-opacity"
+                                className="text-md font-regular 2xl:text-lg hover:font-satisfy transition-all duration-300 p-2 ease-in-out hover:p-6 "
                             >
                                 {item.title}
                             </a>

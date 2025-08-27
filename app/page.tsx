@@ -1,18 +1,32 @@
+'use client'
+
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-
+import Works from "@/components/Works";
+import { motion } from 'framer-motion';
 
 const  Page = ()  => {
-
   return(
-    <div className="flex items-center justify-center min-h-screen min-w-screen bg-black ">
+    <motion.div 
+    className="flex flex-cols-1 items-center justify-center min-h-screen min-w-screen bg-white overflow-hidden"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+    >
+
       <Header />
       <Hero />
+
+      <Works />
+
       <Footer />
-    </div>
+    
+    </motion.div>
   )
 }
 
 
 export default Page;
+

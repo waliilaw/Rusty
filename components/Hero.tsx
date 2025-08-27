@@ -9,8 +9,7 @@ export default function Hero() {
     const router = useRouter()
     
     return (
-        <div className=" w-full overflow-hidden">
-            {/* Video Background */}
+        <div className=" min-w-full overflow-hidden ">
             <video
                 autoPlay
                 loop
@@ -31,7 +30,7 @@ export default function Hero() {
                 <p className="text-xl font-regular">Your Journey Begins Here</p>
                 <button className='mt-8 px-6 py-3 bg-transparent  text-white border-2 border-white rounded-2xl font-bold  hover:opacity-80 transition-all hover:bg-white/80 hover:text-black hover:border-white/80 duration-400 ease-in-out'
                 onClick={() => {router.push('/')}}>
-                    Proceed to <span className='font-bold italic'>Works</span>
+                    Proceed <span className='italic'>to</span> Works
                 </button>
             </div>
         </div>
